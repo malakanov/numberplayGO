@@ -1,7 +1,6 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"math/rand"
 	"os"
@@ -11,16 +10,16 @@ import (
 )
 
 func main() {
-	fmt.Println("Загадайте число от 1 до 10")
+	fmt.Println("Программа загадала целое число от 1 до 10")
 
 	secretNumber := generateRandomInteger(1, 10)
 
 	var attempts int
 	for {
 		attempts++
-		fmt.Println("Введите число")
-		reader := bufio.NewReader(os.Stdin)
-		input, _ := reader.ReadString('\n')
+		fmt.Println("Угадайте загаданное число, введите целое число от 1 до 10")
+		var input string
+		fmt.Fscan(os.Stdin, &input)
 		input = strings.TrimSuffix(input, "\n")
 
 		guess, err := strconv.Atoi(input)
